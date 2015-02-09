@@ -6,6 +6,7 @@ import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
 import com.makiftasova.java.wordlist.WordLists;
@@ -30,7 +31,7 @@ public class RandomIME extends InputMethodService implements KeyboardView.OnKeyb
 		return keyboardView;
 	}
 
-	@Override
+    @Override
 	public void onPress(int primaryCode) {
 
 	}

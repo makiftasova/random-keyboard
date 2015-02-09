@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-          android:keyWidth="50%p"
-          android:horizontalGap="0px"
-          android:verticalGap="0px"
-          android:keyHeight="100dp"
-    >
-    <Row >
-        <Key android:codes="44"  android:keyLabel="Write something random" android:keyEdgeFlags="left" />
-        <Key android:codes="-4" android:keyLabel="Enter" android:keyEdgeFlags="right"/>
+    android:horizontalGap="0px"
+    android:keyHeight="100dp"
+    android:keyWidth="50%p"
+    android:theme="@style/AppTheme"
+    android:verticalGap="0px">
+    <Row>
+        <Key
+            android:codes="44"
+            android:keyEdgeFlags="left"
+            android:keyLabel="Write something random" />
+        <Key
+            android:codes="-4"
+            android:keyEdgeFlags="right"
+            android:keyLabel="Enter" />
 
     </Row>
 
     <Row>
-        <Key android:codes="-5" android:keyLabel="Delete" android:keyEdgeFlags="left" />
-        <Key android:codes="-3" android:keyLabel="Delete Last Word" android:keyEdgeFlags="right"/>
+        <Key
+            android:codes="-5"
+            android:keyEdgeFlags="left"
+            android:keyLabel="Delete" />
+        <Key
+            android:codes="-3"
+            android:keyEdgeFlags="right"
+            android:keyLabel="Delete Last Word" />
     </Row>
 </Keyboard>

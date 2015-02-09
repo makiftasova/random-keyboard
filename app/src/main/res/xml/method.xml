@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <input-method xmlns:android="http://schemas.android.com/apk/res/android">
     <subtype
-        android:label="@string/subtype_en"
         android:imeSubtypeLocale="en"
-        android:imeSubtypeMode="keyboard" />
+        android:imeSubtypeMode="keyboard"
+        android:label="@string/subtype_en" />
 </input-method>
