@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+          android:keyWidth="10%p"
+          android:horizontalGap="0px"
+          android:verticalGap="0px"
+          android:keyHeight="60dp"
+    >
+    <Row>
+        <Key android:codes="44"  android:keyLabel="Write something random" android:keyEdgeFlags="left" />
+        <Key android:codes="-5" android:keyLabel="Delete" />
+        <Key android:codes="-4" android:keyLabel="Enter" android:keyEdgeFlags="right"/>
+
+    </Row>
+</Keyboard>

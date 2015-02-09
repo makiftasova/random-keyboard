@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RandomKeyboard</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="random_ime">Random Keyboard</string>
+    <string name="subtype_en_US">English (US)</string>
+    <string name="subtype_en">English</string>
+    <string name="title_activity_main">Random Keyboard</string>
+
+    <string name="btn_open_ime_config">ENABLE KEYBOARD</string>
+    <string name="btn_open_ime_select">SET INPUT METHOD</string>
+
+    <string name="text_html_keyboard_enable_info"><Data>
+      <![CDATA["
+        <h2>Enabling Random Keyboard</h2>
+
+        <p><i>Random Keyboard</i> provides a new Android input method. It is <b>disabled by default</b>, and for security reasons Android doesn't allow programs to change input method settings. Please follow the following steps to activate it.<p>
+
+        <h3>Add the keyboard to the system's input method list:</h3>
+        <blockquote>
+          <p>&#8226; Open the system input settings configuration by pressing the <b>Enable Keyboard</b> button above.</p>
+          <p>&#8226; Find <i>Random Keyboard</i> in the input method list, tap the checkmark to switch it on.</p>
+          <p>&#8226; Acknowledge the warning shown by the system. The system always shows this message when enabling a third-party input method.</p>
+          <p>&#8226; Press the <i>Back</i> button to return to this page.</p>
+        </blockquote>
+
+        <h3>Choose the currently active input method:</h3>
+        <blockquote>
+          <p>&#8226; Press the <b>Set input method</b> button above.</p>
+          <p>&#8226; Select <i>Random Keyboard</i> from the list.</p>
+        </blockquote>
+      "]]>
+    </Data></string>
+
+</resources>
