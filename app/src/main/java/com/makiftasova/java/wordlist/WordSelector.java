@@ -1,4 +1,6 @@
-package com.makiftasova.apps.android.keyboard;
+package com.makiftasova.java.wordlist;
+
+import com.makiftasova.java.utils.random.RandomGenerator;
 
 public class WordSelector {
 	private final String[] wordList;

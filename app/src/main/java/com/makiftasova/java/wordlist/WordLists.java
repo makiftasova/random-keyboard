@@ -1,4 +1,4 @@
-package com.makiftasova.apps.android.keyboard;
+package com.makiftasova.java.wordlist;
 
 public interface WordLists {
 	public final String[] ENGLISH = { "a", "able", "about", "account", "acid",

@@ -1,4 +1,4 @@
-package com.makiftasova.apps.android.keyboard;
+package com.makiftasova.java.utils.random;
 
 import java.util.Random;
 

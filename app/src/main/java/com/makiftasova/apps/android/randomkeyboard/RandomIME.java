@@ -8,14 +8,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
-import com.makiftasova.apps.android.keyboard.WordLists;
-import com.makiftasova.apps.android.keyboard.WordSelector;
+import com.makiftasova.java.wordlist.WordLists;
+import com.makiftasova.java.wordlist.WordSelector;
 
 public class RandomIME extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
 
 	private KeyboardView keyboardView;
 	private Keyboard keyboard;
-	private boolean capslock = false;
+	//private boolean capslock = false;
     private WordSelector randomWords;
 
 	@Override
@@ -23,8 +23,9 @@ public class RandomIME extends InputMethodService implements KeyboardView.OnKeyb
         randomWords = new WordSelector(WordLists.ENGLISH);
 		keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard, null);
 		//keyboard = new Keyboard(this, R.xml.qwerty);
-        keyboard = new Keyboard(this, R.xml.dualkey);
+        keyboard = new Keyboard(this, R.xml.key_layout);
 		keyboardView.setKeyboard(keyboard);
+        keyboardView.setPreviewEnabled(false);
 		keyboardView.setOnKeyboardActionListener(this);
 		return keyboardView;
 	}
@@ -50,25 +51,13 @@ public class RandomIME extends InputMethodService implements KeyboardView.OnKeyb
             case Keyboard.KEYCODE_DONE:
                 inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
                 break;
+            case Keyboard.KEYCODE_CANCEL:
+                deleteWord(inputConnection);
+                break;
             default:
                 String randomWord = randomWords.getRandomWord();
                 randomWord += " ";
                 inputConnection.commitText(randomWord, randomWord.length() + 1);
-
-			/*case Keyboard.KEYCODE_SHIFT:
-				capslock = !capslock;
-				keyboard.setShifted(capslock);
-				keyboardView.invalidateAllKeys();
-				break;
-			case Keyboard.KEYCODE_DONE:
-				inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
-				break;
-			default:
-				char code = (char) primaryCode;
-				if (Character.isLetter(code) && capslock) {
-					code = Character.toUpperCase(code);
-				}
-				inputConnection.commitText(String.valueOf(code), 1);*/
 		}
 	}
 
@@ -80,23 +69,7 @@ public class RandomIME extends InputMethodService implements KeyboardView.OnKeyb
 	@Override
 	public void swipeLeft() {
 		InputConnection inputConnection = getCurrentInputConnection();
-		int n = 1;
-		Integer prevLength = 0;
-		CharSequence read;
-		do {
-			read = inputConnection.getTextBeforeCursor(n, 0);
-			if ((null == read) || (0 == read.length()) || (Character.isSpaceChar(read.charAt(0)))
-					    || (prevLength.equals(read.length()))) {
-				break;
-			}
-
-			prevLength = read.length();
-
-			++n;
-		}
-		while (true);
-
-		inputConnection.deleteSurroundingText(n, 0);
+        deleteWord(inputConnection);
 	}
 
 	@Override
@@ -113,6 +86,26 @@ public class RandomIME extends InputMethodService implements KeyboardView.OnKeyb
 	public void swipeUp() {
 
 	}
+
+    private void deleteWord(final InputConnection inputConnection){
+        int n = 1;
+        Integer prevLength = 0;
+        CharSequence read;
+        do {
+            read = inputConnection.getTextBeforeCursor(n, 0);
+            if ((null == read) || (0 == read.length()) || (Character.isSpaceChar(read.charAt(0)))
+                    || (prevLength.equals(read.length()))) {
+                break;
+            }
+
+            prevLength = read.length();
+
+            ++n;
+        }
+        while (true);
+
+        inputConnection.deleteSurroundingText(n, 0);
+    }
 
 	private void playClick(int keyCode) {
 		AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
